@@ -8,13 +8,39 @@
     <link rel="stylesheet" type="text/css" href="styles.css" media="all"/>
     <!-- Import de police d'ecriture de Google font  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap" rel="stylesheet"> 
 </head>
 <body>
     <div class="container">
         <h1>Bienvenue sur mon jeu de dés</h1>
         <button type="button" >+ New Game</button>
+        <div class="board">
+            <div class="player">
+                <h2 class="name">Player 1</h2>
+                <span class="played">52</span>
+                <div class="current-bloc">
+                    <h3>Current</h3>
+                    <span class="current">75</span>
+                </div>
+            </div>
+            <div class="player">
+                <img src=""/>
+                <div class="buttons">
+                    <button type="button">Roll Dice</button>
+                    <button type="button">Hold</button>
+                </div>
+            </div>
+            <div class="player">
+                <h2 class="name">Player 2</h2>
+                <span class="played">52</span>
+                <div  class="current-bloc">
+                    <h3>Current</h3>
+                    <span class="current">75</span>
+                </div>
+            </div>
+
+        </div>
     </div>
     <script src="./index.js"/>
 </body>
