@@ -78,6 +78,9 @@ button:hover{
     font-weight: bold;
     font-size: 2.5rem;
 }
-.bottom{
+.newgame{
     align-self: center;
+}
+.playButtons{
+    display: none;
 }
