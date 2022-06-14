@@ -2,8 +2,19 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
-
+button{
+    border: 1px solid red;
+    background: none;
+    padding: 1.5rem 2.5rem;
+    font-size: 1.2rem;
+    color :red;
+}
+button:hover{
+    background: red;
+    color: white;
+}
 .container{
     display: flex;
     flex-flow: column nowrap;
