@@ -1,5 +1,10 @@
+//creation des variables globales
+let currentUser = true;
+let currentRound = 0;
+let globalPlayer1 = 0;
+let globalPlayer2 = 0 ;
 //creation des variables representant des éléments du DOM
-let currentUser = 1;
+
 let newgamebutton = document.querySelector(".newgame");
 let img = document.getElementById("dice");
 let [scoreP1, scoreP2] = document.getElementsByClassName("played");
@@ -22,14 +27,17 @@ newgamebutton.addEventListener('click',()=>{
 
 playButton.addEventListener('click',()=>{
     let dice = rollDice()
+    currentRound = 0;
     img.src = "./assets/images/de-"+ dice +".gif" ;
-    if(currentUser == 1){
+    if(currentUser){
         scoreP2.innerHTML = 0
         scoreP1.innerHTML = dice;
-        currentUser = 2
+        currentRound = dice
     }else{
         scoreP1.innerHTML = 0
         scoreP2.innerHTML = dice;
-        currentUser = 1 ;
+    }
+    if(dice === 1){
+        currentUser = !currentUser;
     }
 })
