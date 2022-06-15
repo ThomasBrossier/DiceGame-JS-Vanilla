@@ -1,7 +1,7 @@
 // Fonction qui retourne un nombre aléatoire de 1 à 6
 const initPlayers = ()=>{
     let player1 = prompt("Veuillez saisir le nom du joueur 1").trim().replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    let player2 = prompt("Veuillez saisir le nom du joueur 2").trim().replace(/</g, "&lt;").replace(/>/g, "&gt;");;
+    let player2 = prompt("Veuillez saisir le nom du joueur 2").trim().replace(/</g, "&lt;").replace(/>/g, "&gt;");
     console.log(player1)
     if(player1 === "" || player1 === null || player1.length > 20){
         player1 = "Joueur1";

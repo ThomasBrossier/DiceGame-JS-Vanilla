@@ -2,7 +2,7 @@
 let currentUser = true;
 let players;
 let currentRound = 0;
-let finalScore = 30;
+let finalScore = 100;
 let activeGame = false;
 let redColor = "#dc3545";
 
@@ -23,7 +23,12 @@ rollDiceButton.disabled = true;
 holdButton.disabled = true;
 //creation des Events
 newGameButton.addEventListener('click',()=>{
-    players = initPlayers();
+    finalScore = prompt("Veuillez saisir le nombre de point à atteindre").trim().replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    if(!Number.isInteger(finalScore) || finalScore > 500 || finalScore < 20 ){
+        alert('Le score finale doit être un nombre compris entre 20 et 500.');
+        location.reload();
+    }
+    players = initPlayers()
     rollDiceButton.disabled = false;
     holdButton.disabled = false;
     player1Name.innerHTML = players[0].name
