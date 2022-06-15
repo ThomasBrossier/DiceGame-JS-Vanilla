@@ -1,0 +1,93 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    background: linear-gradient(to right, #F6F6F6 0% 50%, white 50% 0%);
+    /*background-image: url("../assets/images/beach.jpg");*/
+}
+button{
+    background: none;
+    padding: 1.5rem 2.5rem;
+    font-size: 1.2rem;
+    margin: 0.4rem;
+    cursor: pointer;
+    border:none;
+}
+button:hover{
+    background: #dc3545;
+    color: white;
+}
+.board{
+    height: 100%;
+}
+.container-fluid{
+    height: 100vh;
+}
+.playButtons{
+    color:#dc3545;
+}
+.playButtons:hover{
+    color: white;
+}
+.current-bloc{
+    background: #dc3545;
+    color : white;
+}
+
+#dice{
+    width: 25%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+#quitgame{
+    display: none;
+}
+.circle{
+    width: 20px;
+    height: 20px;
+    border-radius:20px;
+    background: rgb(224, 78, 70) none repeat scroll 0% 0%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.total{
+    font-size: 6rem;
+    font-weight: 100;
+}
+.wrapper-modal{
+    top:0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.myModal{
+    background-color: white;
+    width: 500px;
+    height: 100px;
+    display: flex;
+    padding: 1rem;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.modal p{
+    font-size: 1.3rem;
+}
+#winner{
+    color:#dc3545;
+    font-weight: bold;
+}
+.closebutton{
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    padding: 0.5rem 1rem;
+    align-self: flex-end;
+    justify-self: flex-start;
+}
+.closebutton:hover{
+    color: white;
+}

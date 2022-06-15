@@ -2,63 +2,68 @@
 let currentUser = true;
 let players;
 let currentRound = 0;
-let finalScore = 10;
+let finalScore = 30;
 let activeGame = false;
 
 //creation des variables representant des éléments du DOM
-const newgamebutton = document.querySelector(".newgame");
+const body = document.getElementById("body");
+const newGameButton = document.querySelector("#newgame");
+const quitGameButton = document.querySelector("#quitgame")
 const winner = document.getElementById("winner");
 const closeButton = document.getElementById("closeButton");
 const img = document.getElementById("dice");
-const [scoreP1, scoreP2] = document.getElementsByClassName("played");
+const [scoreP1, scoreP2] = document.getElementsByClassName("total");
 const [currentP1, currentP2] = document.getElementsByClassName("current");
-const [player1Name , player2Name] = document.getElementsByClassName("name")
-const played = document.getElementsByClassName("played")
-const playButton = document.getElementById("play")
+const[player1Name,player2Name] = document.getElementsByClassName("name")
+const [circle1 , circle2] = document.getElementsByClassName("circle")
+const rollDiceButton = document.getElementById("play")
 const holdButton = document.getElementById("hold")
-
+rollDiceButton.disabled = true;
+holdButton.disabled = true;
 //creation des Events
-newgamebutton.addEventListener('click',()=>{
+newGameButton.addEventListener('click',()=>{
     players = initPlayers();
+    rollDiceButton.disabled = false;
+    holdButton.disabled = false;
     player1Name.innerHTML = players[0].name
     player2Name.innerHTML =  players[1].name
-    switchPlayers(currentUser,player1Name,player2Name)
+    switchPlayers(currentUser,circle1,circle2,body)
     activeGame = !activeGame;
-    switchButtons(activeGame,newgamebutton);
+    switchButtons(activeGame,newGameButton, quitGameButton);
     scoreP1.innerText = 0;
     scoreP2.innerText = 0;
     currentP1.innerText = 0;
     currentP2.innerText = 0;
 })
-
+quitGameButton.addEventListener('click',()=>{
+    location.reload();
+})
 closeButton.addEventListener('click',()=>{
-    activeGame = !activeGame;
-    switchButtons(activeGame,newgamebutton)
-    displayModal();
+    location.reload();
 })
 
-playButton.addEventListener('click',()=>{
+rollDiceButton.addEventListener('click',()=>{
     let dice = rollDice()
-    currentRound = 0;
-    img.src = "./assets/images/de-"+ dice +".gif" ;
+    img.src = "./assets/images/de-"+ dice +".png" ;
+    currentRound = currentRound + dice;
     if(currentUser){
-        scoreP2.innerHTML = 0
-        scoreP1.innerHTML = dice;
+        currentP2.innerHTML = 0
+        currentP1.innerHTML = currentRound;
     }else{
-        scoreP1.innerHTML = 0
-        scoreP2.innerHTML = dice;
+        currentP1.innerHTML = 0
+        currentP2.innerHTML = currentRound;
     }
-    currentRound = dice
+    console.log(currentRound)
     if(dice === 1){
         currentUser = !currentUser;
-        switchPlayers(currentUser,player1Name,player2Name)
+        switchPlayers(currentUser,circle1,circle2,body)
         currentRound = 0;
     }
 })
 
 holdButton.addEventListener('click',()=>{
     if (currentRound === 0){
-        alert('Lancez le dé avant d\'utiliser ce boutton')
+        alert('Lancez le dé avant de garder votre score !');
         return
     }
     if(currentUser){
@@ -68,8 +73,8 @@ holdButton.addEventListener('click',()=>{
             displayModal();
             return
         }
-        scoreP1.innerHTML = 0;
-        currentP1.innerHTML =  players[0].total;
+        scoreP1.innerHTML = players[0].total;
+        currentP1.innerHTML =  0 ;
     }else{
         players[1].total += currentRound;
         if( players[1].total >= finalScore){
@@ -77,10 +82,10 @@ holdButton.addEventListener('click',()=>{
             displayModal();
             return
         }
-        scoreP2.innerHTML = 0;
-        currentP2.innerHTML =  players[1].total;
+        scoreP2.innerHTML = players[1].total;
+        currentP2.innerHTML =  0;
     }
     currentUser = !currentUser;
-    switchPlayers(currentUser,player1Name,player2Name)
+    switchPlayers(currentUser,circle1,circle2,body)
     currentRound = 0;
 })

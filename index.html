@@ -5,51 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeu de dé</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" media="all"/>
     <!-- Import de police d'ecriture de Google font  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;900&display=swap" rel="stylesheet"> 
 </head>
-<body>
-    <div class="container">
-        <h1 class="top">Bienvenue sur mon jeu de dé</h1>
-        <div class="board">
-
-            <!--Parti joueur 1 (à gauche)-->
-            <div class="player">
-                <h2 class="name" id="player1">Player 1</h2>
-                <span class="played">52</span>
-                <div class="current-bloc">
-                    <h3>Current</h3>
-                    <span class="current">75</span>
+<body id="body"class="text-uppercase">
+    <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center ">
+            <button id="newgame"class="display-4"type="button" >+ NEW GAME</button>
+            <button id="quitgame" class="display-4"type="button" >- QUIT CURRENT GAME</button>
+            <section class="board w-100 d-flex justify-content-between">
+                <div class=" w-100 d-flex flex-column justify-content-around align-items-center">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="d-flex justify-content-center align-items-center ">
+                            <span class="name display-2" id="player1">PLAYER 1</span>
+                            <div id="cercle1" style="display: none;"class="circle"></div>
+                        </div>
+                        <span class="total text-danger">65</span>
+                    </div>
+                    <div class="current-bloc d-flex flex-column justify-content-around align-items-center py-2 w-25">
+                        <span class="text-dark">Current</span>
+                        <span class="display-2 current">12</span>
+                    </div>
                 </div>
-            </div>
-            <!--Parti bouttons et dés (au centre)-->
-            <div class="player">
-                <div class="dice-bloc">
-                    <img id="dice" src="./assets/images/de-1.gif" alt="dice">  
+                <div class="d-flex w-100 flex-column justify-content-around">
+                    <div class="d-flex justify-content-center">
+                        <img id="dice"src="./assets/images/de-4.png" alt="dice">  
+                    </div>
+                    <div class="buttons d-flex flex-column">
+                        <button type="button" id="play" class="playButtons display-4">Roll Dice</button>
+                        <button type="button" id="hold"class="playButtons display-4">Hold</button>
+                    </div>
                 </div>
-                <div class="buttons">
-                    <button type="button" id="play" class="playButtons">Roll Dice</button>
-                    <button type="button" id="hold"class="playButtons">Hold</button>
-                    <button class="newgame"type="button" >+ New Game</button>
+                <div class=" w-100 d-flex flex-column justify-content-around align-items-center">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="d-flex justify-content-center align-items-center ">
+                            <div id="cercle2" style="display: none;" class="circle"></div>
+                            <span class="name display-2" id="player1">PLAYER 2</span> 
+                        </div>
+                        <span class="total text-danger">79</span>
+                    </div>
+                    <div class="current-bloc d-flex flex-column justify-content-around align-items-center py-2 w-25">
+                        <span class="text-dark">Current</span>
+                        <span class="display-2 current">25</span>
+                    </div>
                 </div>
-            </div>
-            <!--Parti joueur 2 (à droite)-->
-            <div class="player">
-                <h2 class="name" id="player2">Player 2</h2>
-                <span class="played">43</span>
-                <div  class="current-bloc">
-                    <h3>Current</h3>
-                    <span class="current">12</span>
-                </div>
-            </div>
-
-        </div>
+            </section>
     </div>
     <div class="wrapper-modal" style="display:none;">
-        <div class="modal">
+        <div class="myModal">
             <button class="closebutton" id="closeButton" type="button">X</button>
             <p><span id="winner"></span> a gagné !</p>
         </div>
