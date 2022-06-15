@@ -11,10 +11,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;900&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 </head>
-<body id="body"class="text-uppercase">
+<body id="body"class="text-uppercase p-2">
     <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center ">
-            <button id="newgame"class="display-4"type="button" >+ NEW GAME</button>
+            <button id="newgame"class="display-4"type="button" ><i class="fa-solid fa-plus icon icon-border"></i> NEW GAME</button>
             <button id="quitgame" class="display-4"type="button" >- QUIT CURRENT GAME</button>
             <section class="board w-100 d-flex justify-content-between">
                 <div class=" w-100 d-flex flex-column justify-content-around align-items-center">
@@ -35,8 +36,8 @@
                         <img id="dice"src="./assets/images/de-4.png" alt="dice">  
                     </div>
                     <div class="buttons d-flex flex-column">
-                        <button type="button" id="play" class="playButtons display-4">Roll Dice</button>
-                        <button type="button" id="hold"class="playButtons display-4">Hold</button>
+                        <button type="button" id="play" class="playButtons display-4"><i class="fa-solid fa-arrows-rotate icon"></i>Roll Dice</button>
+                        <button type="button" id="hold"class="playButtons display-4"><i class="bi bi-box-arrow-in-down icon"></i>Hold</button>
                     </div>
                 </div>
                 <div class=" w-100 d-flex flex-column justify-content-around align-items-center">
@@ -60,6 +61,7 @@
             <p><span id="winner"></span> a gagné !</p>
         </div>
     </div>
+    <script src="https://kit.fontawesome.com/673b9056b4.js" crossorigin="anonymous"></script>
     <script  type="text/javascript" src="./js/functions.js"></script>
     <script  type="text/javascript"src="./js/index.js"></script>
 </body>

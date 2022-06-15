@@ -4,6 +4,7 @@ let players;
 let currentRound = 0;
 let finalScore = 30;
 let activeGame = false;
+let redColor = "#dc3545";
 
 //creation des variables representant des éléments du DOM
 const body = document.getElementById("body");
