@@ -1,4 +1,4 @@
-// Fonction qui retourne un nombre aléatoire de 1 à 6
+// Function that init players names by asking the user
 const initPlayers = ()=>{
     let player1 = prompt("Veuillez saisir le nom du joueur 1").trim().replace(/</g, "&lt;").replace(/>/g, "&gt;");
     let player2 = prompt("Veuillez saisir le nom du joueur 2").trim().replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -16,13 +16,14 @@ const initPlayers = ()=>{
                 total:0}
             ] 
     }
-   
+
+// Function wich return a random number between 1 to 6 
 const rollDice = ()=>{
     const nombre = Math.trunc((Math.random()*6) + 1);
     return nombre
 }
 
-
+// Function that switch active player style 
 const switchPlayers = (currentUser,circle1,circle2,body)=>{
     if(currentUser){
         circle1.style.display = "block";
@@ -35,6 +36,7 @@ const switchPlayers = (currentUser,circle1,circle2,body)=>{
     }
 }
 
+// Function that switch active game buttons  
 const switchButtons = (activeGame, newGameButton, quitGameButton)=>{
     if(activeGame){
         newGameButton.style.display = "none";
@@ -44,6 +46,7 @@ const switchButtons = (activeGame, newGameButton, quitGameButton)=>{
         quitGameButton.style.display = "none"
     }
 }
+// Function that is showing or hiding modal 
 const displayModal = ()=>{
     let modalwrapper = document.querySelector(".wrapper-modal");
     if(modalwrapper.style.display === "none"){

@@ -21,12 +21,12 @@ const rollDiceButton = document.getElementById("play")
 const holdButton = document.getElementById("hold")
 rollDiceButton.disabled = true;
 holdButton.disabled = true;
+
 //creation des Events
 newGameButton.addEventListener('click',()=>{
-    finalScore = prompt("Veuillez saisir le nombre de point à atteindre").trim().replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    finalScore = prompt("Veuillez saisir le nombre de point à atteindre. Le score finale doit être un nombre compris entre 20 et 500.").trim().replace(/</g, "&lt;").replace(/>/g, "&gt;");
     if(!Number.isInteger(finalScore) || finalScore > 500 || finalScore < 20 ){
-        alert('Le score finale doit être un nombre compris entre 20 et 500.');
-        location.reload();
+        finalScore = 100;
     }
     players = initPlayers()
     rollDiceButton.disabled = false;

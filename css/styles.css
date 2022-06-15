@@ -4,8 +4,8 @@ body{
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
     background: linear-gradient(to right, #F6F6F6 0% 50%, white 50% 0%);
-    /*background-image: url("../assets/images/beach.jpg");*/
 }
+/* Main elements initialyzed*/
 button{
     display: flex;
     justify-content: center;
@@ -19,6 +19,25 @@ button:hover{
     background: #dc3545;
     color: white;
 }
+#dice{
+    width: 25%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+/*Buttons*/
+#quitgame{
+    display: none;
+}
+.playButtons{
+    color:#dc3545;
+}
+.playButtons:hover{
+    color: white;
+}
+button:hover .icon{
+    border: 1px solid white;
+    color: white;
+}
 .icon{
     color: #dc3545;
     justify-self: flex-start;
@@ -30,35 +49,22 @@ button:hover{
     border: 1px solid #dc3545;
     border-radius: 50px;
 }
-button:hover .icon{
-    border: 1px solid white;
-    color: white;
-}
+
+
+/* Containers */
 .board{
     height: 100%;
 }
 .container-fluid{
     height: 100vh;
 }
-.playButtons{
-    color:#dc3545;
-}
-.playButtons:hover{
-    color: white;
-}
 .current-bloc{
     background: #dc3545;
     color : white;
 }
 
-#dice{
-    width: 25%;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
 
-#quitgame{
-    display: none;
-}
+/*Active player*/
 .circle{
     width: 20px;
     height: 20px;
@@ -67,10 +73,15 @@ button:hover .icon{
     margin-left: 1rem;
     margin-right: 1rem;
 }
+
+
+/*PLayers*/
 .total{
     font-size: 6rem;
     font-weight: 100;
 }
+
+/*Modal*/
 .wrapper-modal{
     top:0;
     position: absolute;

@@ -6,18 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeu de dé</title>
     <link rel="stylesheet" type="text/css" href="./css/styles.css" media="all"/>
+    
+    <!-- Import of Google font policies & bootstrap CSS library   -->
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" media="all"/>
-    <!-- Import de police d'ecriture de Google font  -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;900&display=swap" rel="stylesheet"> 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;900&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 </head>
 <body id="body"class="text-uppercase p-2">
     <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center ">
+        <!--Main buttons to start or quit the game-->
             <button id="newgame"class="display-4"type="button" ><i class="fa-solid fa-plus icon icon-border"></i> NEW GAME</button>
             <button id="quitgame" class="display-4"type="button" >- QUIT CURRENT GAME</button>
+
+            <!--Virtual Board of the Game-->
             <section class="board w-100 d-flex justify-content-between">
+                <!--Left side of the Board (Player 1)-->
                 <div class=" w-100 d-flex flex-column justify-content-around align-items-center">
                     <div class="d-flex flex-column align-items-center">
                         <div class="d-flex justify-content-center align-items-center ">
@@ -31,6 +36,7 @@
                         <span class="display-2 current">12</span>
                     </div>
                 </div>
+                <!-- Center of the Board (Dice & play buttons)-->
                 <div class="d-flex w-100 flex-column justify-content-around">
                     <div class="d-flex justify-content-center">
                         <img id="dice"src="./assets/images/de-4.png" alt="dice">  
@@ -40,6 +46,7 @@
                         <button type="button" id="hold"class="playButtons display-4"><i class="bi bi-box-arrow-in-down icon"></i>Hold</button>
                     </div>
                 </div>
+                <!--Right side of the Board (Player 2)-->
                 <div class=" w-100 d-flex flex-column justify-content-around align-items-center">
                     <div class="d-flex flex-column align-items-center">
                         <div class="d-flex justify-content-center align-items-center ">
@@ -55,12 +62,15 @@
                 </div>
             </section>
     </div>
+    <!--Modal showed when a player win -->
     <div class="wrapper-modal" style="display:none;">
         <div class="myModal">
             <button class="closebutton" id="closeButton" type="button">X</button>
             <p><span id="winner"></span> a gagné !</p>
         </div>
     </div>
+
+    <!--FOnt awesome script & applications scripts-->
     <script src="https://kit.fontawesome.com/673b9056b4.js" crossorigin="anonymous"></script>
     <script  type="text/javascript" src="./js/functions.js"></script>
     <script  type="text/javascript"src="./js/index.js"></script>
