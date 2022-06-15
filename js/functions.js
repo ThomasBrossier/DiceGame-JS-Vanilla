@@ -3,7 +3,19 @@ const rollDice = ()=>{
     const nombre = Math.trunc((Math.random()*6) + 1);
     return nombre
 }
-
+const switchPlayers = (currentUser,p1,p2)=>{
+    if(currentUser){
+        p1.style.color = "red";
+        p1.style.border = "1px solid red";
+        p2.style.color = "black";
+        p2.style.border = "none";
+    }else{
+        p2.style.color = "red";
+        p2.style.border = "1px solid red";
+        p1.style.color = "black";
+        p1.style.border = "none";
+    }
+}
 const displayModal = ()=>{
     let modalwrapper = document.querySelector(".wrapper-modal");
     if(modalwrapper.style.display === "none"){

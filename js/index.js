@@ -22,6 +22,7 @@ newgamebutton.addEventListener('click',()=>{
     players = initPlayers();
     player1Name.innerHTML = players[0].name
     player2Name.innerHTML =  players[1].name
+    switchPlayers(currentUser,player1Name,player2Name)
     activeGame = !activeGame;
     switchButtons(activeGame,newgamebutton);
     scoreP1.innerText = 0;
@@ -50,6 +51,7 @@ playButton.addEventListener('click',()=>{
     currentRound = dice
     if(dice === 1){
         currentUser = !currentUser;
+        switchPlayers(currentUser,player1Name,player2Name)
         currentRound = 0;
     }
 })
@@ -64,6 +66,7 @@ holdButton.addEventListener('click',()=>{
         if(players[0].total  >= finalScore){
             winner.innerHTML = players[0].name 
             displayModal();
+            return
         }
         scoreP1.innerHTML = 0;
         currentP1.innerHTML =  players[0].total;
@@ -72,10 +75,12 @@ holdButton.addEventListener('click',()=>{
         if( players[1].total >= finalScore){
             winner.innerHTML = players[1].name 
             displayModal();
+            return
         }
         scoreP2.innerHTML = 0;
         currentP2.innerHTML =  players[1].total;
     }
     currentUser = !currentUser;
+    switchPlayers(currentUser,player1Name,player2Name)
     currentRound = 0;
 })
