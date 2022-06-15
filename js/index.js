@@ -1,30 +1,39 @@
 //creation des variables globales
 let currentUser = true;
+let players;
 let currentRound = 0;
-let globalPlayer1 = 0;
-let globalPlayer2 = 0 ;
-let finalScore = 30;
-//creation des variables representant des éléments du DOM
+let finalScore = 10;
+let activeGame = false;
 
-let newgamebutton = document.querySelector(".newgame");
-let img = document.getElementById("dice");
-let [scoreP1, scoreP2] = document.getElementsByClassName("played");
-let [currentP1, currentP2] = document.getElementsByClassName("current");
-let playButtons = document.getElementsByClassName("playButtons")
-let played = document.getElementsByClassName("played")
-let playButton = document.getElementById("play")
-let holdButton = document.getElementById("hold")
+//creation des variables representant des éléments du DOM
+const newgamebutton = document.querySelector(".newgame");
+const winner = document.getElementById("winner");
+const closeButton = document.getElementById("closeButton");
+const img = document.getElementById("dice");
+const [scoreP1, scoreP2] = document.getElementsByClassName("played");
+const [currentP1, currentP2] = document.getElementsByClassName("current");
+const [player1Name , player2Name] = document.getElementsByClassName("name")
+const played = document.getElementsByClassName("played")
+const playButton = document.getElementById("play")
+const holdButton = document.getElementById("hold")
+
 //creation des Events
 newgamebutton.addEventListener('click',()=>{
-    newgamebutton.style.display = "none";
-    for (const button of playButtons) {
-            button.style.display = "block"
-    }
+    players = initPlayers();
+    player1Name.innerHTML = players[0].name
+    player2Name.innerHTML =  players[1].name
+    activeGame = !activeGame;
+    switchButtons(activeGame,newgamebutton);
     scoreP1.innerText = 0;
     scoreP2.innerText = 0;
     currentP1.innerText = 0;
     currentP2.innerText = 0;
-    //initplayers();
+})
+
+closeButton.addEventListener('click',()=>{
+    activeGame = !activeGame;
+    switchButtons(activeGame,newgamebutton)
+    displayModal();
 })
 
 playButton.addEventListener('click',()=>{
@@ -34,7 +43,6 @@ playButton.addEventListener('click',()=>{
     if(currentUser){
         scoreP2.innerHTML = 0
         scoreP1.innerHTML = dice;
-        
     }else{
         scoreP1.innerHTML = 0
         scoreP2.innerHTML = dice;
@@ -42,24 +50,31 @@ playButton.addEventListener('click',()=>{
     currentRound = dice
     if(dice === 1){
         currentUser = !currentUser;
+        currentRound = 0;
     }
 })
 
 holdButton.addEventListener('click',()=>{
+    if (currentRound === 0){
+        alert('Lancez le dé avant d\'utiliser ce boutton')
+        return
+    }
     if(currentUser){
-        globalPlayer1 += currentRound;
-        if(globalPlayer1 > finalScore){
-            alert(player1 + " a gagné !");
+        players[0].total += currentRound;
+        if(players[0].total  >= finalScore){
+            winner.innerHTML = players[0].name 
+            displayModal();
         }
         scoreP1.innerHTML = 0;
-        currentP1.innerHTML = globalPlayer1;
+        currentP1.innerHTML =  players[0].total;
     }else{
-        globalPlayer2 += currentRound;
-        if(globalPlayer2 > finalScore){
-            alert(player2 + " a gagné !")
+        players[1].total += currentRound;
+        if( players[1].total >= finalScore){
+            winner.innerHTML = players[1].name 
+            displayModal();
         }
         scoreP2.innerHTML = 0;
-        currentP2.innerHTML = globalPlayer2;
+        currentP2.innerHTML =  players[1].total;
     }
     currentUser = !currentUser;
     currentRound = 0;

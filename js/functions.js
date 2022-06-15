@@ -4,21 +4,45 @@ const rollDice = ()=>{
     return nombre
 }
 
+const displayModal = ()=>{
+    let modalwrapper = document.querySelector(".wrapper-modal");
+    if(modalwrapper.style.display === "none"){
+        modalwrapper.style.display = "flex";
+    }else{
+        modalwrapper.style.display = "none";
+    }
+}
 
-const initplayers = ()=>{
-let player1 = {}
-let player2 = {}
-player1.name = prompt("Veuillez saisir le nom du joueur 1");
-if(player1.name === "" || player1.name === null){
-    player1.name = "Joueur1";
+const switchButtons = (activeGame, newgamebutton)=>{
+    const playButtons = document.getElementsByClassName("playButtons");
+    if(activeGame){
+        newgamebutton.style.display = "none";
+        for (const button of playButtons) {
+            button.style.display = "block"
+        }
+    }else{
+        newgamebutton.style.display = "block";
+        for (const button of playButtons) {
+            button.style.display = "none"
+        }
+    }
 }
-player2.name = prompt("Veuillez saisir le nom du joueur 2");
-if(player2.name === "" || player2.name === null){
-    player2.name = "Joueur2";
+const initPlayers = ()=>{
+let player1 = prompt("Veuillez saisir le nom du joueur 1");
+let player2 = prompt("Veuillez saisir le nom du joueur 2");
+
+if(player1 === "" || player1 === null){
+    player1 = "Joueur1";
 }
-namePlayer1 = document.getElementById("player1");
-namePlayer2 = document.getElementById("player2");
-namePlayer1.innerText = player1.name;
-namePlayer2.innerText = player2.name
+if(player2 === "" || player2 === null){
+    player2 = "Joueur2";
+}
+  return  [
+            {name:player1,
+             total:0},
+            {name:player2,
+            total:0}
+        ]
+
 }
 
